@@ -1,0 +1,64 @@
+/* General styling */
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar styling */
+.navbar {
+    position: fixed; /* Fixes the header to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100; /* Make sure it's above other content */
+    padding: 1rem;
+    background-color: #343a40; /* Ensure the header has a background color */
+}
+
+/* Push the content down to make space for the fixed header */
+body {
+    padding-top: 60px; /* Adjust based on the height of your header */
+}
+
+.profile-dropdown {
+    margin-left: auto;
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Sidebar starts below the fixed header */
+    left: -250px;
+    width: 250px;
+    height: calc(100% - 60px); /* Sidebar height is reduced by the header height */
+    background-color: #343a40;
+    color: white;
+    transition: all 0.3s ease;
+    padding-top: 20px;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px;
+}
+
+.sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #495057;
+    padding-left: 20px;
+    transition: all 0.3s ease;
+}
