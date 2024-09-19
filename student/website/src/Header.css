@@ -1,0 +1,20 @@
+.header {
+    background:  rgb(11, 114, 114);
+    color: white; /* White */
+    padding: 21px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content h1 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+}
+
+.header-content i {
+    margin-right: 10px;
+    font-size: 30px;
+    vertical-align: middle;
+}

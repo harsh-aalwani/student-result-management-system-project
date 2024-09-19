@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from './assets/images/logo.png';
 import './assets/css/Login.css';
-
+import Footer from "./Dashboard/Footer";
 function Login() {
   return (
+    <>
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
@@ -30,6 +31,8 @@ function Login() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 
