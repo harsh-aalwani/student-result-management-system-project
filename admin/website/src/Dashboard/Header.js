@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from './../assets/images/logo-white.png';
 import '../assets/css/Header.css';
-import React, { useState } from 'react';
 
 function Header() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -11,7 +12,6 @@ function Header() {
 
   return (
     <div className="header-container">
-      {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand d-flex align-items-center" href="#">
@@ -38,13 +38,13 @@ function Header() {
 
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarOpen ? 'active' : ''}`}>
-        <ul className="sidebar-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Course</a></li>
-          <li><a href="#">Add User</a></li>
-          <li><a href="#">Guide</a></li>
-        </ul>
-      </div>
+      <ul className="sidebar-menu">
+        <li><Link to="/dashboard">Home</Link></li>
+        <li><Link to="/course">Course</Link></li>
+        <li><Link to="/adduser">Add User</Link></li>
+        <li><Link to="/guide">Guide</Link></li>
+      </ul>
+    </div>
     </div>
   );
 }

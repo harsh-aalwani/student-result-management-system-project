@@ -54,4 +54,6 @@
   .btn-primary:hover {
     background-color: #2d55bc;
   }
-  
+  .pgBack{
+    padding: 20px;
+  }
