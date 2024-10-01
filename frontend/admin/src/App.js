@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Login from './Login.js';
-import Dashboard from './Dashboard/Dashboard.js';
-import Course from './Dashboard/Course.js';
-import Marksheet from './Dashboard/Marksheet.js';
-import AddMarksheet from './Dashboard/AddMarksheet.js';
+import Login from './pages/Login.js';
+import Dashboard from './pages/Dashboard.js';
+import Course from './pages/Course.js';
+import Marksheet from './pages/Marksheet.js';
+import AddMarksheet from './pages/AddMarksheet.js';
 
 function App() {
   return (
