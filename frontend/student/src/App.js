@@ -1,16 +1,5 @@
-import React from 'react';
-import Header from './Header';
-import StudentForm from './StudentForm';
-import Footer from './Footer';
-function App() {
-    return (
-        <div className="App">
-            <Header />
-            <StudentForm />
-            <Footer />
-        </div>
-    );
-}
+adminUser
+adminPassword
 
-
-export default App;
+mongodb+srv://22bca01:projectsrms123@student-result-manageme.36j2l.mongodb.net/?retryWrites=true&w=majority&appName=student-result-management-system
+mongodb+srv://22bca01:projectsrms123@student-result-manageme.36j2l.mongodb.net/?retryWrites=true&w=majority&appName=student-result-management-system

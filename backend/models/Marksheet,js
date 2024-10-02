@@ -1,0 +1,17 @@
+const mongoose = require('mongoose');
+
+const marksheetSchema = new mongoose.Schema({
+  serialId: { type: Number, required: true },
+  studentName: { type: String, required: true },
+  subjects: { type: [String], required: true },
+  marks: { type: [Number], required: true },
+  year: { type: Number, required: true },
+  semester: { type: Number, required: true },
+  course: { type: String, required: true },
+  totalMarks: { type: Number, required: true },
+  percentage: { type: Number, required: true },
+  grade: { type: String, required: true }
+});
+
+const Marksheet = mongoose.model('Marksheet', marksheetSchema);
+module.exports = Marksheet;

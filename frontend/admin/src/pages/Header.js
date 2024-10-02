@@ -14,10 +14,10 @@ function Header() {
     <div className="header-container">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand d-flex align-items-center" href="#">
+          <Link className="navbar-brand d-flex align-items-center" to="/dashboard">
             <img src={logo} alt="Logo" width="40" height="40" className="d-inline-block align-text-top me-2" />
             Student Result Management System
-          </a>
+          </Link>
           <button className="btn btn-outline-light" onClick={toggleSidebar}>
             Menu
           </button>
@@ -40,8 +40,9 @@ function Header() {
       <div className={`sidebar ${isSidebarOpen ? 'active' : ''}`}>
       <ul className="sidebar-menu">
         <li><Link to="/dashboard">Home</Link></li>
+        <li><Link to="/sheets-collection">Sheets</Link></li>
         <li><Link to="/course">Course</Link></li>
-        <li><Link to="/adduser">Add User</Link></li>
+        <li><Link to="/add-admin">Add Admin</Link></li>
         <li><Link to="/guide">Guide</Link></li>
       </ul>
     </div>

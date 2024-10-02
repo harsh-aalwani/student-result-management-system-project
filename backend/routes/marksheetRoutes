@@ -1,0 +1,28 @@
+// routes/marksheetRoutes.js
+
+const express = require('express');
+const Marksheet = require('../models/Marksheet');
+const router = express.Router();
+
+// Create a new marksheet
+router.post('/add', async (req, res) => {
+  try {
+    const newMarksheet = new Marksheet(req.body);
+    await newMarksheet.save();
+    res.status(201).send('Marksheet created successfully');
+  } catch (error) {
+    res.status(400).send('Error creating marksheet: ' + error.message);
+  }
+});
+
+// Get all marksheets
+router.get('/', async (req, res) => {
+  try {
+    const marksheets = await Marksheet.find();
+    res.status(200).json(marksheets);
+  } catch (error) {
+    res.status(500).send('Error retrieving marksheets: ' + error.message);
+  }
+});
+
+module.exports = router;
