@@ -3,14 +3,15 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import adminRoutes from './routes/adminRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
-import { PORT, mongoURI } from './config.js'; // Import your DB connection config
+
+import { PORT, mongoURI } from './config.js';
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json()); // Ensure this is present
-    
+
 // Routes
 app.use('/admin', adminRoutes); // Prefix your admin routes
 app.use('/courses', courseRoutes);

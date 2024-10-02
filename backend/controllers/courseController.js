@@ -10,6 +10,16 @@ export const getAllCourses = async (req, res) => {
     }
 };
 
+// Fetch course names only
+export const getCourseNames = async (req, res) => {
+    try {
+        const courses = await Course.find({}, 'courseName'); // Fetch only courseName
+        res.status(200).json(courses);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching courses: ' + error.message });
+    }
+};
+
 // Fetch course by ID
 export const getCourseById = async (req, res) => {
     const { id } = req.params;

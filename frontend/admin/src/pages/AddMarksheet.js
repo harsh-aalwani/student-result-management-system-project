@@ -1,14 +1,31 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 import "../assets/css/ResultUpload.css";
+
 function ResultUpload() {
     const [title, setTitle] = useState('');
     const [course, setCourse] = useState('');
     const [courseYear, setCourseYear] = useState('');
     const [semester, setSemester] = useState('');
     const [file, setFile] = useState(null);
+    const [courses, setCourses] = useState([]); // State for courses
+
+    useEffect(() => {
+        // Fetch course names from the server
+        const fetchCourses = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/courses/names'); // Adjust the URL based on your setup
+                const data = await response.json();
+                setCourses(data);
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+            }
+        };
+
+        fetchCourses();
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,7 +41,7 @@ function ResultUpload() {
         <Header/>
         <div className="pgAddMarksheet">
             <br/>
-            <div class="pgBack">
+            <div className="pgBack">
                 <nav>
                     <ul className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/dashboard">Home</Link></li>
@@ -50,13 +67,20 @@ function ResultUpload() {
 
                     <div className="form-group">
                         <label htmlFor="course">Course</label>
-                        <input
-                            type="text"
+                        <select
                             id="course"
                             value={course}
                             onChange={(e) => setCourse(e.target.value)}
-                            placeholder="Enter Course"
-                            required />
+                            style={{width:"100%", padding:"3px"}}
+                            required>
+
+                            <option value="">Select Course</option>
+                            {courses.map((courseItem, index) => (
+                                <option key={index} value={courseItem.courseName}>
+                                    {courseItem.courseName}
+                                </option>
+                            ))}
+                        </select>
                     </div>
 
                     <div className="form-group">
