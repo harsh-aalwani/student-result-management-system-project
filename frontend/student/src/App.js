@@ -1,5 +1,16 @@
-adminUser
-adminPassword
-
-mongodb+srv://22bca01:projectsrms123@student-result-manageme.36j2l.mongodb.net/?retryWrites=true&w=majority&appName=student-result-management-system
-mongodb+srv://22bca01:projectsrms123@student-result-manageme.36j2l.mongodb.net/?retryWrites=true&w=majority&appName=student-result-management-system
+import StudentForm from "./StudentForm.js";
+import ResultMarksheet from "./ResultMarksheet";
+import {Router, Routes, Route} from "react-router-dom";
+function App() {
+  return (
+    <>
+        <Router>
+            <Routes>
+                    <Route path="/" element={<StudentForm />} />
+                    <Route path="result" element={<ResultMarksheet />} />
+            </Routes>
+        </Router>
+    </>
+  );
+}
+export default App;

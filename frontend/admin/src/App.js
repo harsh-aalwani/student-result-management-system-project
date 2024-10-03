@@ -17,7 +17,7 @@ function App() {
         <Route path="/dashboard" element={<Home />} />
         <Route path="/sheets-collection" element={<SheetsCollection />} />
         <Route path="/course" element={<Course />} />
-        <Route path="/marksheet" element={<Marksheet />} />
+        <Route path="/marksheet/:title" element={<Marksheet />} /> {/* Update made here */}
         <Route path="/add-marksheet" element={<AddMarksheet />} />
         <Route path="/add-admin" element={<AddAdmin />} />
         <Route path="/edit-course/:id" element={<EditCourse />} />

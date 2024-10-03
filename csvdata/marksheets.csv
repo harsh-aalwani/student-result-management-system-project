@@ -1,5 +1,0 @@
-serialId,studentName,subjects,totalMarks,percentage,grade
-S12345,Rahul Sharma,"[{""name"":""Math"",""marks"":85},{""name"":""Science"",""marks"":90},{""name"":""English"",""marks"":88}]",263,87.67,A
-S12346,Priya Gupta,"[{""name"":""Math"",""marks"":78},{""name"":""Science"",""marks"":82},{""name"":""English"",""marks"":80}]",240,80.0,B
-S12347,Amit Verma,"[{""name"":""Math"",""marks"":90},{""name"":""Science"",""marks"":75},{""name"":""English"",""marks"":80}]",245,81.67,B
-S12348,Sneha Reddy,"[{""name"":""Math"",""marks"":92},{""name"":""Science"",""marks"":88},{""name"":""English"",""marks"":95}]",275,91.67,A

@@ -1,0 +1,8 @@
+serialId,studentName,subjects,totalMarks,percentage,grade,course,semester,year,marksheet_title
+S24351,Ravi Sharma,"[{""name"":""Math"",""marks"":85},{""name"":""Science"",""marks"":90},{""name"":""English"",""marks"":88}]",263,87.67,A
+S24352,Priya Gupta,"[{""name"":""Math"",""marks"":78},{""name"":""Science"",""marks"":82},{""name"":""English"",""marks"":80}]",240,80.0,B
+S24353,Harsh Aalwani,"[{""name"":""Math"",""marks"":90},{""name"":""Science"",""marks"":75},{""name"":""English"",""marks"":80}]",245,81.67,B
+S24354,Sneha Patel,"[{""name"":""Math"",""marks"":92},{""name"":""Science"",""marks"":88},{""name"":""English"",""marks"":95}]",275,91.67,A
+S24355,Dhruv Singh,"[{""name"":""Math"",""marks"":88},{""name"":""Science"",""marks"":79},{""name"":""English"",""marks"":84}]",251,83.67,B
+S24356,Rajveer Kapoor,"[{""name"":""Math"",""marks"":95},{""name"":""Science"",""marks"":92},{""name"":""English"",""marks"":90}]",277,92.33,A
+    

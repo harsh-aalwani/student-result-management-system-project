@@ -1,83 +1,45 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from "./Header.js"
-import Footer from "./Footer.js"
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+import Header from "./Header.js";
+import Footer from "./Footer.js";
+
 const Marksheet = () => {
-    const [students, setStudents] = useState([
-        {
-          id: 1,
-          name: 'John Doe',
-          subjects: { math: 80, science: 85, english: 78, history: 92, art: 88 },
-        },
-        {
-          id: 2,
-          name: 'Jane Smith',
-          subjects: { math: 75, science: 88, english: 91, history: 85, art: 90 },
-        },
-        {
-          id: 3,
-          name: 'Sam Wilson',
-          subjects: { math: 90, science: 82, english: 87, history: 80, art: 84 },
-        },
-      ]);
-    
-      const calculateTotalMarks = (subjects) => {
-        return Object.values(subjects).reduce((total, mark) => total + mark, 0);
-      };
-    
-      const calculatePercentage = (totalMarks) => {
-        return (totalMarks / (5 * 100)) * 100;
-      };
-    
-      const getGrade = (percentage) => {
-        if (percentage >= 90) return 'A';
-        if (percentage >= 80) return 'B';
-        if (percentage >= 70) return 'C';
-        if (percentage >= 60) return 'D';
-        return 'F';
-      };
-    
-      const deleteStudent = (id) => {
-        const updatedStudents = students.filter((student) => student.id !== id);
-        setStudents(updatedStudents);
-      };
-    
-      const generateStudentCSV = (student) => {
-        const header = [
-          'SID',
-          'Student Name',
-          'Math',
-          'Science',
-          'English',
-          'History',
-          'Art',
-          'Total Marks',
-          'Percentage',
-          'Grade'
-        ];
-        const totalMarks = calculateTotalMarks(student.subjects);
-        const percentage = calculatePercentage(totalMarks).toFixed(2);
-        const grade = getGrade(parseFloat(percentage));
-        const row = [
-          student.id,
-          student.name,
-          student.subjects.math,
-          student.subjects.science,
-          student.subjects.english,
-          student.subjects.history,
-          student.subjects.art,
-          totalMarks,
-          `${percentage}%`,
-          grade
-        ];
-    
-        let csvContent = "data:text/csv;charset=utf-8," + header.join(",") + "\n" + row.join(",");
-        return encodeURI(csvContent);
-      };
-    
+    const { title } = useParams(); // Get marksheet title from URL
+    const [marksheets, setMarkSheets] = useState([]);
+
+    // Fetch marksheet data based on title
+    useEffect(() => {
+        const fetchMarkSheets = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/marksheets/title/${title}`);
+                setMarkSheets(response.data);
+            } catch (error) {
+                console.error('Error fetching marksheets:', error);
+            }
+        };
+
+        fetchMarkSheets();
+    }, [title]);
+
+    // Function to handle delete action
+    const handleDelete = async (id) => {
+        // Show confirmation alert
+        const confirmDelete = window.confirm("Are you sure you want to delete this marksheet?");
+        if (confirmDelete) {
+            try {
+                await axios.delete(`http://localhost:5000/marksheets/${id}`);
+                // Remove the deleted marksheet from the state
+                setMarkSheets(marksheets.filter(marksheet => marksheet._id !== id));
+            } catch (error) {
+                console.error('Error deleting marksheet:', error);
+            }
+        }
+    };
+
     return (
         <>
-            <Header/>
+            <Header />
             <div className='pgMarksheet'>
                 <div className="container-fluid">
                     <div className="BgColor">
@@ -88,58 +50,53 @@ const Marksheet = () => {
                                 <li className="breadcrumb-item active"><Link to="/marksheet">Marksheet</Link></li>
                             </ul>
                         </nav>
-                    <h2 className="text-center page-title">Marksheet</h2>
+                        <h2 className="text-center page-title">Marksheet</h2>
                     </div>
                     <table className="table table-bordered">
                         <thead className="table-dark">
-                        <tr>
-                            <th>SID</th>
-                            <th>Student Name</th>
-                            <th>Math</th>
-                            <th>Science</th>
-                            <th>English</th>
-                            <th>History</th>
-                            <th>Art</th>
-                            <th>Total Marks</th>
-                            <th>Percentage</th>
-                            <th>Grade</th>
-                            <th>Delete</th>
-                            <th>Download</th>
-                        </tr>
+                            <tr>
+                                <th>SID</th>
+                                <th>Student Name</th>
+                                <th>Subjects</th>
+                                <th>Total Marks</th>
+                                <th>Percentage</th>
+                                <th>Grade</th>
+                                <th>Delete</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        {students.map((student) => {
-                            const totalMarks = calculateTotalMarks(student.subjects);
-                            const percentage = calculatePercentage(totalMarks).toFixed(2);
-                            const grade = getGrade(parseFloat(percentage));
-                            return (
-                            <tr key={student.id}>
-                                <td>{student.id}</td>
-                                <td>{student.name}</td>
-                                <td>{student.subjects.math}</td>
-                                <td>{student.subjects.science}</td>
-                                <td>{student.subjects.english}</td>
-                                <td>{student.subjects.history}</td>
-                                <td>{student.subjects.art}</td>
-                                <td>{totalMarks}</td>
-                                <td>{percentage}%</td>
-                                <td>{grade}</td>
-                                <td>
-                                <button className="btn btn-danger btn-sm btnaction" onClick={() => deleteStudent(student.id)}>Delete</button>
-                                </td>
-                                <td>
-                                <a href={generateStudentCSV(student)} download={`student_${student.id}_marksheet.csv`} className="btn btn-success btn-sm">Download</a>
-                                </td>
-                            </tr>
-                            );
-                        })}
+                            {marksheets.length > 0 ? (
+                                marksheets.map((marksheet) => (
+                                    <tr key={marksheet._id}>
+                                        <td>{marksheet.serialId}</td>
+                                        <td>{marksheet.studentName}</td>
+                                        <td>
+                                            {marksheet.subjects.map((subject, index) => (
+                                                <div key={index}>
+                                                    {subject.name}: {subject.marks}
+                                                </div>
+                                            ))}
+                                        </td>
+                                        <td>{marksheet.totalMarks}</td>
+                                        <td>{marksheet.percentage}</td>
+                                        <td>{marksheet.grade}</td>
+                                        <td>
+                                            <button className="btn btn-danger btn-sm btnaction" onClick={() => handleDelete(marksheet._id)}>Delete</button>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="8" className="text-center">No data found</td>
+                                </tr>
+                            )}
                         </tbody>
                     </table>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }
- 
+
 export default Marksheet;

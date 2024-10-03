@@ -1,0 +1,8 @@
+serialId,studentName,subjects,totalMarks,percentage,grade,course,semester,year,marksheet_title
+B12551,Amit Sharma,"[{""name"":""Math"",""marks"":85},{""name"":""Science"",""marks"":90},{""name"":""English"",""marks"":88}]",263,87.67,A
+B12552,Shivam Patel,"[{""name"":""Math"",""marks"":78},{""name"":""Science"",""marks"":82},{""name"":""English"",""marks"":80}]",240,80.0,B
+B12553,Vatsal Bharodiya,"[{""name"":""Math"",""marks"":90},{""name"":""Science"",""marks"":75},{""name"":""English"",""marks"":80}]",245,81.67,B
+B12554,Dhruv Mistry,"[{""name"":""Math"",""marks"":92},{""name"":""Science"",""marks"":88},{""name"":""English"",""marks"":95}]",275,91.67,A
+B12555,Ravi Singh,"[{""name"":""Math"",""marks"":88},{""name"":""Science"",""marks"":79},{""name"":""English"",""marks"":84}]",251,83.67,B
+B12556,Neha Kapoor,"[{""name"":""Math"",""marks"":95},{""name"":""Science"",""marks"":92},{""name"":""English"",""marks"":90}]",277,92.33,A
+    
