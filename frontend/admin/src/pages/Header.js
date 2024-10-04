@@ -27,8 +27,6 @@ function Header() {
                 <i className="bi bi-person"></i> Profile
               </button>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">My Profile</a></li>
-                <li><a className="dropdown-item" href="#">Edit Profile</a></li>
                 <li><a className="dropdown-item" href="#">Logout</a></li>
               </ul>
             </div>

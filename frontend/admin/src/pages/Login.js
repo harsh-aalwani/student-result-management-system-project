@@ -11,7 +11,6 @@ function Login() {
     const { enqueueSnackbar } = useSnackbar(); // Initialize the hook
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -30,7 +29,6 @@ function Login() {
         } catch (error) {
             console.error('Login error:', error);
             const errorMessage = error.response ? error.response.data.message : 'Server error';
-            setError(errorMessage);
             enqueueSnackbar(errorMessage, { variant: 'error' }); // Show error alert
         } finally {
             setLoading(false);

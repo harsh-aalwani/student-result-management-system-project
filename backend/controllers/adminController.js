@@ -1,13 +1,10 @@
 import Admin from '../models/Admin.js';
 
 
-// Login Admin
 export const loginAdmin = async (req, res) => {
-    console.log("Login request received:", req.body); // Log the incoming request
     const { username, password } = req.body;
 
     try {
-        console.log("Searching for admin with username:", username); // Log the username being searched
         const admin = await Admin.findOne({ username });
 
         if (!admin) return res.status(404).json({ message: 'Admin not found' });
@@ -15,12 +12,13 @@ export const loginAdmin = async (req, res) => {
         // Directly compare the plain text password
         if (admin.password !== password) return res.status(400).json({ message: 'Invalid credentials' });
 
+        // Simply return a token or some response indicating success
         res.json({ message: 'Login successful', admin });
     } catch (error) {
-        console.error('Database query error:', error); // Log the error for debugging
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 };
+
 
 //Register
 export const registerAdmin = async (req, res) => {

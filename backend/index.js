@@ -13,9 +13,9 @@ app.use(cors());
 app.use(express.json()); // Ensure this is present
 
 // Routes
-app.use('/admin', adminRoutes); 
+app.use('/admin', adminRoutes);
 app.use('/courses', courseRoutes);
-app.use('/marksheets', marksheetRoutes); // Add the marksheet routes
+app.use('/marksheets', marksheetRoutes);
 
 // Connect to MongoDB
 mongoose
