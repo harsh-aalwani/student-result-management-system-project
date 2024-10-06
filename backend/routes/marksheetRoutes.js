@@ -1,6 +1,12 @@
 import express from 'express';
 import multer from 'multer';
-import { uploadCSV, getMarksheetTitles, getMarksheetByTitle , deleteMarksheet} from '../controllers/marksheetController.js';
+import {
+    uploadCSV,
+    getMarksheetTitles,
+    getMarksheetByTitle,
+    getMarksheetBySerialId,
+    deleteMarksheetById,
+} from '../controllers/marksheetController.js';
 
 const router = express.Router();
 
@@ -16,6 +22,10 @@ router.get('/titles', getMarksheetTitles);
 // GET route for fetching marksheet by title
 router.get('/title/:title', getMarksheetByTitle);
 
-router.delete('/:id', deleteMarksheet);
+// GET route for fetching marksheet by serialId
+router.get('/serial/:serialNo', getMarksheetBySerialId);
+
+// DELETE route for deleting a marksheet by ID
+router.delete('/:id', deleteMarksheetById);
 
 export default router;

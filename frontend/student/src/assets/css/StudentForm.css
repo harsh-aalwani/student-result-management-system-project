@@ -1,0 +1,94 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(52, 152, 219, 0.60) 50%, white 50%), url('../images/clouds.jpg');
+    background-size: cover;
+    background-position: top;
+    padding: 20px;
+}
+
+.student-form {
+    background-color: rgba(255, 255, 255, 0.95); /* Slight transparency for blending */
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    width: 100%;
+    max-width: 450px;
+    border: 3px solid black; /* Inner border */
+    box-shadow: 0 0 0 3px #3498db; /* Outer border */
+}
+
+.student-form:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Darker shadow */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px; /* Increased padding for better UX */
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+    background-color: #f0f8ff; /* Light background on focus */
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px; /* More padding for better appearance */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    /* Removed the transition property to disable animation */
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+}
+
+@media (max-width: 600px) {
+    .student-form {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .form-group input {
+        padding: 12px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}

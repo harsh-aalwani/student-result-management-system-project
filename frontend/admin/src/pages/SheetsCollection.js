@@ -33,7 +33,7 @@ function SheetCollection() {
                         <nav>
                             <ul className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/dashboard">Home</Link></li>
-                                <li className="breadcrumb-item active"><Link to="/dashboard">Sheets</Link></li>
+                                <li className="breadcrumb-item active"><Link to="/sheets-collection">Sheets</Link></li>
                             </ul>
                         </nav>
                         <div className="container">

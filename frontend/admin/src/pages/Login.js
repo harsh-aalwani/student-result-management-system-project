@@ -21,15 +21,13 @@ function Login() {
             const response = await axios.post('http://localhost:5000/admin/login', {
                 username,
                 password,
-            });
-            console.log(response.data);
-            enqueueSnackbar('Login successful!', { variant: 'success' }); // Show success alert
-            navigate('/dashboard');
-            // Redirect or perform additional actions here
+            }, { withCredentials: true }); // Important to include credentials for session cookies            
+
+            enqueueSnackbar('Login successful!', { variant: 'success' });
+            navigate('/dashboard'); // Redirect to dashboard after login
         } catch (error) {
-            console.error('Login error:', error);
             const errorMessage = error.response ? error.response.data.message : 'Server error';
-            enqueueSnackbar(errorMessage, { variant: 'error' }); // Show error alert
+            enqueueSnackbar(errorMessage, { variant: 'error' });
         } finally {
             setLoading(false);
         }

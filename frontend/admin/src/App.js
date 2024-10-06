@@ -9,20 +9,21 @@ import AddAdmin from './pages/AddAdmin.js';
 import EditCourse from './pages/editCourse.js';
 import Home from './pages/Home.js';
 import NotFound from './pages/NotFound'; // Import NotFound component
+import ProtectedRoute from './pages/ProtectedRoute'; // Import ProtectedRoute
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="/dashboard" element={<Home />} />
-                <Route path="/sheets-collection" element={<SheetsCollection />} />
-                <Route path="/course" element={<Course />} />
-                <Route path="/marksheet/:title" element={<Marksheet />} />
-                <Route path="/add-marksheet" element={<AddMarksheet />} />
-                <Route path="/add-admin" element={<AddAdmin />} />
-                <Route path="/edit-course/:id" element={<EditCourse />} />
-                
+                <Route path="/dashboard" element={<ProtectedRoute element={<Home />} />} />
+                <Route path="/sheets-collection" element={<ProtectedRoute element={<SheetsCollection />} />} />
+                <Route path="/course" element={<ProtectedRoute element={<Course />} />} />
+                <Route path="/marksheet/:title" element={<ProtectedRoute element={<Marksheet />} />} />
+                <Route path="/add-marksheet" element={<ProtectedRoute element={<AddMarksheet />} />} />
+                <Route path="/add-admin" element={<ProtectedRoute element={<AddAdmin />} />} />
+                <Route path="/edit-course/:id" element={<ProtectedRoute element={<EditCourse />} />} />
+
                 {/* 404 Not Found Route */}
                 <Route path="*" element={<NotFound />} />
             </Routes>

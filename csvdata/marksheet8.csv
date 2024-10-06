@@ -1,0 +1,8 @@
+serialId,studentName,subjects,totalMarks,percentage,grade,course,semester,year,marksheet_title
+S244551,Neha Sharma,"[{""name"":""Unix"",""marks"":85},{""name"":""WFS"",""marks"":90},{""name"":""ASP.NET"",""marks"":88},{""name"":""NT"",""marks"":87},{""name"":""AWD"",""marks"":90}]",440,88.00,A
+S244552,Karan Mehta,"[{""name"":""Unix"",""marks"":78},{""name"":""WFS"",""marks"":82},{""name"":""ASP.NET"",""marks"":80},{""name"":""NT"",""marks"":75},{""name"":""AWD"",""marks"":70}]",385,77.00,B
+S244553,Pooja Gupta,"[{""name"":""Unix"",""marks"":90},{""name"":""WFS"",""marks"":75},{""name"":""ASP.NET"",""marks"":80},{""name"":""NT"",""marks"":85},{""name"":""AWD"",""marks"":88}]",418,83.60,B
+S245454,Ajay Singh,"[{""name"":""Unix"",""marks"":92},{""name"":""WFS"",""marks"":88},{""name"":""ASP.NET"",""marks"":95},{""name"":""NT"",""marks"":90},{""name"":""AWD"",""marks"":93}]",458,91.60,A
+S244555,Tina Rathi,"[{""name"":""Unix"",""marks"":88},{""name"":""WFS"",""marks"":79},{""name"":""ASP.NET"",""marks"":84},{""name"":""NT"",""marks"":82},{""name"":""AWD"",""marks"":76}]",409,81.80,B
+S244556,Manoj Yadav,"[{""name"":""Unix"",""marks"":95},{""name"":""WFS"",""marks"":92},{""name"":""ASP.NET"",""marks"":90},{""name"":""NT"",""marks"":88},{""name"":""AWD"",""marks"":91}]",456,91.20,A
+S244557,Harsh Aalwani,"[{""name"":""Unix"",""marks"":85},{""name"":""WFS"",""marks"":90},{""name"":""ASP.NET"",""marks"":88},{""name"":""NT"",""marks"":87},{""name"":""AWD"",""marks"":90}]",440,88.00,A

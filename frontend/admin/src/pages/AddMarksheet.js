@@ -68,8 +68,8 @@ function AddMarksheet() {
                     <nav>
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item"><Link to="/dashboard">Home</Link></li>
-                            <li className="breadcrumb-item"><Link to="/dashboard">Sheet</Link></li>
-                            <li className="breadcrumb-item active"><Link to="add-marksheet">Add Marksheet</Link></li>
+                            <li className="breadcrumb-item"><Link to="/sheets-collection">Sheet</Link></li>
+                            <li className="breadcrumb-item active"><Link to="/add-marksheet">Add Marksheet</Link></li>
                         </ul>
                     </nav>
                 </div>

@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Import axios for API requests
+import { useSnackbar } from 'notistack'; // Import the hook
 import logo from './../assets/images/logo-white.png';
 import '../assets/css/Header.css';
 
 function Header() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const { enqueueSnackbar } = useSnackbar(); // Initialize the hook
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:5000/admin/logout', {}, { withCredentials: true });
+      enqueueSnackbar('Logged out successfully!', { variant: 'success' });
+      navigate('/'); // Redirect to login page after logout
+    } catch (error) {
+      enqueueSnackbar('Error logging out. Please try again.', { variant: 'error' });
+    }
   };
 
   return (
@@ -27,7 +41,7 @@ function Header() {
                 <i className="bi bi-person"></i> Profile
               </button>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Logout</a></li>
+                <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
               </ul>
             </div>
           </div>
@@ -36,14 +50,13 @@ function Header() {
 
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarOpen ? 'active' : ''}`}>
-      <ul className="sidebar-menu">
-        <li><Link to="/dashboard">Home</Link></li>
-        <li><Link to="/sheets-collection">Sheets</Link></li>
-        <li><Link to="/course">Course</Link></li>
-        <li><Link to="/add-admin">Add Admin</Link></li>
-        <li><Link to="/guide">Guide</Link></li>
-      </ul>
-    </div>
+        <ul className="sidebar-menu">
+          <li><Link to="/dashboard">Home</Link></li>
+          <li><Link to="/sheets-collection">Sheets</Link></li>
+          <li><Link to="/course">Course</Link></li>
+          <li><Link to="/add-admin">Add Admin</Link></li>
+        </ul>
+      </div>
     </div>
   );
 }

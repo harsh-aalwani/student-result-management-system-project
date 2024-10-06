@@ -24,12 +24,10 @@ const Marksheet = () => {
 
     // Function to handle delete action
     const handleDelete = async (id) => {
-        // Show confirmation alert
         const confirmDelete = window.confirm("Are you sure you want to delete this marksheet?");
         if (confirmDelete) {
             try {
                 await axios.delete(`http://localhost:5000/marksheets/${id}`);
-                // Remove the deleted marksheet from the state
                 setMarkSheets(marksheets.filter(marksheet => marksheet._id !== id));
             } catch (error) {
                 console.error('Error deleting marksheet:', error);
@@ -47,10 +45,10 @@ const Marksheet = () => {
                             <ul className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/dashboard">Home</Link></li>
                                 <li className="breadcrumb-item"><Link to="/dashboard">Sheets</Link></li>
-                                <li className="breadcrumb-item active"><Link to="/marksheet">Marksheet</Link></li>
+                                <li className="breadcrumb-item active" style={{ color: "#0a58ca" }}>Marksheet</li>
                             </ul>
                         </nav>
-                        <h2 className="text-center page-title">Marksheet</h2>
+                        <h2 className="text-center page-title">{title}</h2>
                     </div>
                     <table className="table table-bordered">
                         <thead className="table-dark">

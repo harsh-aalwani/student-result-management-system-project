@@ -1,16 +1,18 @@
-import StudentForm from "./StudentForm.js";
-import ResultMarksheet from "./ResultMarksheet";
-import {Router, Routes, Route} from "react-router-dom";
+import StudentForm from "./pages/StudentForm.js";
+import ResultMarksheet from "./pages/ResultMarksheet.js";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
     <>
-        <Router>
-            <Routes>
-                    <Route path="/" element={<StudentForm />} />
-                    <Route path="result" element={<ResultMarksheet />} />
-            </Routes>
-        </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<StudentForm />} />
+          <Route path="/result/:serialNo" element={<ResultMarksheet />} />
+        </Routes>
+      </Router>
     </>
   );
 }
+
 export default App;
