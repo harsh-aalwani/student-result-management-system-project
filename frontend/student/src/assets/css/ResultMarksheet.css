@@ -1,54 +1,55 @@
 body {
-  background-color: #f4f7fa;
-  font-family: 'Montserrat', sans-serif; /* Updated font for the body */
+  background-color: #f1f5f9;
+  font-family: 'Montserrat', sans-serif; /* Clean font for the body */
+  margin: 0; /* Remove any default margin */
 }
 
 .marksheet-wrapper {
-  margin: 20px; /* Space around the marksheet */
-  padding: 15px; /* Optional padding inside the wrapper */
-  background-color: #f4f7fa; /* Background color for contrast */
-  border-radius: 10px; /* Optional rounded corners */
+  margin: 0 auto; /* Center the marksheet */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  max-width: 960px;
+  min-height: 100vh; /* Ensure full height of the viewport */
+  display: flex;
+  flex-direction: column;
 }
 
 .marksheet {
-  border: 3px solid #007bff; /* Blue border */
+  border: 2px solid #007bff;
   border-radius: 10px;
-  padding: 10px; /* Increased padding for a more spacious layout */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  max-width: 900px; /* Maintain max-width for on-screen display */
-  position: relative; /* Set relative positioning */
-  min-height: 100vh; /* Minimum height to occupy full page */
-  padding-bottom: 70px; /* Extra space at the bottom for the total section */
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  flex-grow: 1; /* Make marksheet take full space between header and signature */
 }
 
 .header {
   text-align: center;
   border-bottom: 2px solid #007bff;
-  padding-bottom: 10px; /* More padding for visual comfort */
-  margin-bottom: 20px; /* More margin for separation */
+  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .header img {
-  width: 80px;
+  width: 90px;
   height: auto;
 }
 
 .header h1 {
-  font-size: 2rem; /* Adjusted font size for heading */
-  color: #007bff; /* Elegant color for header */
-  margin: 10px 0; /* Balanced margin */
-  font-family: 'Montserrat', sans-serif; /* Set to Montserrat font */
-  font-weight: 600; /* Bold for emphasis */
-  letter-spacing: 1px; /* Slight letter spacing for elegance */
+  font-size: 2.5rem; /* Larger, more elegant font size */
+  color: #007bff;
+  margin: 10px 0;
+  font-weight: 700;
+  letter-spacing: 1.5px;
 }
 
 .header h2 {
-  font-size: 1.5rem; /* Adjusted font size for subheading */
-  color: #343a40;
-  font-family: 'Montserrat', sans-serif; /* Set to Montserrat font */
-  margin: 5px 0; /* Balanced margin */
-  font-weight: 400; /* Regular weight for subheading */
+  font-size: 1.6rem;
+  color: #495057;
+  font-weight: 500;
+  margin-top: 10px;
 }
 
 .someSpacing {
@@ -60,96 +61,135 @@ body {
 .info-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px; /* Reduced margin */
-  padding: 2px 0; /* Reduced padding */
-  font-size: 0.9rem; /* Reduced font size */
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1rem; /* Adjusted font size for better readability */
 }
 
 .highlight {
-  font-weight: bold; /* Make important information bold */
-  color: #007bff; /* Highlight color */
+  font-weight: bold;
+  color: #007bff;
+}
+
+.table {
+  border: 2px solid #007bff;
+  margin-top: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for a lifted table effect */
 }
 
 .table th,
 .table td {
-  font-size: 0.9rem; /* Increased font size for better readability */
-  padding: 8px; /* Adjusted padding for comfort */
+  font-size: 1rem; /* Standardized font size for table */
+  padding: 12px; /* Increased padding for readability */
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle; /* Center content vertically */
+}
+
+.table th {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.table-title {
+  background-color: #f1f5f9;
+  color: #007bff;
+  font-weight: bold;
 }
 
 .grades {
-  text-align: right; /* Align grades to the right */
-  font-size: 1rem; /* Slightly larger font for grades */
-  margin-top: 20px; /* Add space above the grades */
+  text-align: right;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 200px;
 }
 
 .total-highlight {
-  font-weight: bold; /* Make total marks, percentage, and grade bold */
+  font-weight: bold;
 }
 
 .total-section {
-  justify-content: space-between; /* Space between signature and grades */
-  position: absolute; /* Use absolute positioning for the total section */
-  position: absolute; /* Make it relative to avoid overlap */
-  bottom: 40px;
-  left:250px;
-  right: 0; /* Align to the right */
-  margin: 0 20px; /* Optional margin for spacing */
+  position: absolute; /* Ensure the section is absolutely positioned */
+  bottom: 30px; /* Set bottom position */
+  left: 30px; /* Set left position */
+  width: 100%; /* Ensure it spans the width */
+  display: flex;
+  justify-content: flex-start; /* Align the signature to the left */
 }
+
 .signature-area {
-  text-align: left; /* Align signature to the left */
-  font-size: 0.9rem; /* Reduced font size */
+  text-align: left;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 30px; /* Set bottom position to be 50px from the bottom */
+  left: 30px;
 }
 
 .signature-area p {
   margin: 0;
+  color: #495057;
 }
+
+.signature-area p:first-child {
+  margin-bottom: 10px; /* Space below the line */
+}
+
 
 @media print {
   body {
-    margin: 0; /* Remove default body margin */
-    background-color: #fff; /* White background for print */
+    margin: 0;
+    background-color: #fff;
   }
 
   .marksheet-wrapper {
-    margin: 0; /* Remove margin to avoid overflow */
-    padding: 0; /* Remove padding */
-    border: none; /* Remove border for printing */
-    background-color: transparent; /* Transparent background */
+    margin: 0;
+    padding: 0;
+    border: none;
   }
 
   .marksheet {
-    border: 3px solid #007bff; /* Keep border */
-    border-radius: 0; /* Remove rounded corners */
-    padding: 10px; /* Reduce padding for compactness */
-    box-shadow: none; /* Remove shadow for printing */
-    width: 100%; /* Use full width of the page */
-    page-break-inside: avoid; /* Prevent page break inside the marksheet */
-    overflow: hidden; /* Prevent overflow */
-    padding-bottom: 40px; /* Extra padding to ensure space for signature */
+    border: 2px solid #007bff;
+    border-radius: 0;
+    padding: 10px;
+    box-shadow: none;
+    width: 100%;
+    min-height: 100vh;
+    page-break-inside: avoid;
+    overflow: hidden;
   }
 
   .header h1,
   .header h2 {
-    font-size: 1.2rem; /* Smaller font size for headers */
+    font-size: 1.5rem;
+    color: #007bff;
   }
 
-  .info-row,
-  .table td,
   .table th,
-  .total-section p {
-    font-size: 0.9rem; /* Smaller font size for fitting more content */
+  .table td {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 1rem;
   }
 
-  /* Ensure footer or signature is visible */
+  .table th {
+    color: #007bff;
+    font-weight: bold;
+  }
+
   .total-section {
-    position: absolute; /* Make it relative to avoid overlap */
-    bottom: 40px;
-    left:250px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
   }
 
-  /* Adjust page margins for better print fitting */
+  .grades{
+    margin-bottom: 0px;
+  }
+
   @page {
-    margin: 5mm; /* Add a small margin around the page */
-    size: A4; /* You can specify the page size */
+    margin: 5mm;
+    size: A4;
   }
 }

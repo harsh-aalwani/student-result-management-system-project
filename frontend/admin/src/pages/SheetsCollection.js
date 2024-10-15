@@ -27,7 +27,7 @@ function SheetCollection() {
     return (
         <>
             <Header />
-            <div className="pgHome">
+            <div className="pgHome" style={{paddingBottom: '80px'}}>
                 <div className="container-fluid">
                     <div className="BgColor">
                         <nav>

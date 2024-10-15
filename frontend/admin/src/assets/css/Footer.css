@@ -1,10 +1,20 @@
 .footer {
-    margin-top: 60px;
-    left: 0;
-    bottom: 0;
+    background: #343a40; /* Highlight color */
+    color: #FFFFFF; /* White */
+    text-align: center;
+    padding: 15px 20px;
     width: 100%;
-    background-color: #f8f9fa;
-    text-align: center; 
-    padding: 10px 0; 
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer .heart {
+    color: #E74C3C; /* Red */
 }

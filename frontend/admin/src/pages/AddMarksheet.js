@@ -62,7 +62,7 @@ function AddMarksheet() {
     return (
         <SnackbarProvider maxSnack={3}> {/* Add SnackbarProvider */}
             <Header />
-            <div className="pgAddMarksheet">
+            <div className="pgAddMarksheet" style={{paddingBottom: '80px' , background: '#F1F3F4'}}>
                 <br />
                 <div className="pgBack">
                     <nav>

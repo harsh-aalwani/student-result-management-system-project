@@ -8,6 +8,7 @@ import AddMarksheet from './pages/AddMarksheet.js';
 import AddAdmin from './pages/AddAdmin.js';
 import EditCourse from './pages/editCourse.js';
 import Home from './pages/Home.js';
+import QuickCSVFormatter from './pages/QCFPage.js';
 import NotFound from './pages/NotFound'; // Import NotFound component
 import ProtectedRoute from './pages/ProtectedRoute'; // Import ProtectedRoute
 
@@ -23,7 +24,7 @@ function App() {
                 <Route path="/add-marksheet" element={<ProtectedRoute element={<AddMarksheet />} />} />
                 <Route path="/add-admin" element={<ProtectedRoute element={<AddAdmin />} />} />
                 <Route path="/edit-course/:id" element={<ProtectedRoute element={<EditCourse />} />} />
-
+                <Route path="/qcf-page" element={<ProtectedRoute element={<QuickCSVFormatter />} />} />
                 {/* 404 Not Found Route */}
                 <Route path="*" element={<NotFound />} />
             </Routes>

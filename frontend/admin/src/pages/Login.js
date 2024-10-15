@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useSnackbar } from 'notistack'; // Import the hook
-import logo from '../assets/images/logo.png';
-import '../assets/css/Login.css';
-import Footer from "../pages/Footer";
+import { useSnackbar } from 'notistack';
+import logo from '../assets/images/logo-white.png';
+import '../assets/css/ReLogin.css'; // New CSS file for Login form
+import Footer from "./Footer.js";
+import Header from "./SimpleHeader.js";
 
-function Login() {
+const Login = () => {
     const navigate = useNavigate();
-    const { enqueueSnackbar } = useSnackbar(); // Initialize the hook
+    const { enqueueSnackbar } = useSnackbar();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -21,10 +22,10 @@ function Login() {
             const response = await axios.post('http://localhost:5000/admin/login', {
                 username,
                 password,
-            }, { withCredentials: true }); // Important to include credentials for session cookies            
+            }, { withCredentials: true });
 
             enqueueSnackbar('Login successful!', { variant: 'success' });
-            navigate('/dashboard'); // Redirect to dashboard after login
+            navigate('/dashboard');
         } catch (error) {
             const errorMessage = error.response ? error.response.data.message : 'Server error';
             enqueueSnackbar(errorMessage, { variant: 'error' });
@@ -35,56 +36,41 @@ function Login() {
 
     return (
         <>
-            <div className="pgLogin">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 offset-md-3">
-                            <div className="card my-5 shadow-lg rounded">
-                                <div className="card-body cardbody-color p-lg-5">
-                                    <div className="text-center">
-                                        <img src={logo} className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3" width="150px" alt="profile" />
-                                    </div>
-                                    <h2 className="text-dark text-center mb-4">Login</h2>
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="mb-4">
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                id="username"
-                                                name="username"
-                                                placeholder="User Name"
-                                                value={username}
-                                                onChange={(e) => setUsername(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                        <div className="mb-4">
-                                            <input
-                                                type="password"
-                                                className="form-control"
-                                                id="password"
-                                                name="password"
-                                                placeholder="Password"
-                                                value={password}
-                                                onChange={(e) => setPassword(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                        <div className="text-center">
-                                            <button type="submit" className="btn btn-primary btn-lg w-100" disabled={loading}>
-                                                {loading ? 'Loading...' : 'Login'}
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+            <Header/>
+            <div className="login-form-container" style={{marginTop: '0px'}}> {/* Updated class name */}
+                <form className="login-form" onSubmit={handleSubmit}> {/* Updated class name */}
+                    <div className="login-logo-container"> {/* Updated class name */}
+                        <img src={logo} alt="Logo" className="login-logo" /> {/* Updated class name */}
                     </div>
-                </div>
+                    <div className="login-form-group"> {/* Updated class name */}
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            name="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="login-form-group"> {/* Updated class name */}
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    {loading && <p className="loading">Loading...</p>}
+                    <button type="submit" className="login-button"> {/* Updated class name */}
+                        {loading ? 'Loading...' : 'Login'}
+                    </button>
+                </form>
             </div>
             <Footer />
         </>
     );
-}
+};
 
 export default Login;

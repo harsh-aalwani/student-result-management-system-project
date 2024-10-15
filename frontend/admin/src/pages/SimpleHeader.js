@@ -32,32 +32,9 @@ function Header() {
             <img src={logo} alt="Logo" width="40" height="40" className="d-inline-block align-text-top me-2" />
             Student Result Management System
           </Link>
-          <button className="btn btn-outline-light" onClick={toggleSidebar}>
-            Menu
-          </button>
-          <div className="profile-dropdown d-flex ms-auto align-items-center">
-            <div className="dropdown">
-              <button className="btn btn-outline-light dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown">
-                <i className="bi bi-person"></i> Profile
-              </button>
-              <ul className="dropdown-menu">
-                <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
-              </ul>
-            </div>
-          </div>
         </div>
       </nav>
 
-      {/* Sidebar */}
-      <div className={`sidebar ${isSidebarOpen ? 'active' : ''}`}>
-        <ul className="sidebar-menu">
-          <li><Link to="/dashboard">Home</Link></li>
-          <li><Link to="/sheets-collection">Sheets</Link></li>
-          <li><Link to="/course">Course</Link></li>
-          <li><Link to="/add-admin">Add Admin</Link></li>
-          <li><Link to="/qcf-page">Quick CSV</Link></li>
-        </ul>
-      </div>
     </div>
   );
 }

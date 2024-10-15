@@ -49,7 +49,7 @@ const AddAdmin = () => {
         <>
             <Header />
             <div className="pgAdmin">
-                <div className="container-fluid">
+                <div className="container-fluid" style={{paddingBottom: '150px'}}>
                     <div className="BgColor">
                         <nav>
                             <ul className="breadcrumb">

@@ -136,7 +136,7 @@ const Course = () => {
                             </form>
                         </div>
                     </div>
-                    <div className="container mt-5">
+                    <div className="container mt-5" style={{paddingBottom: '80px'}}>
                         <h3 className="heading"><img src={listImg} alt="Logo" width="35" height="35" className="d-inline-block align-text-top me-2" />Course List</h3>
                         <hr className="separator" />
                         <div className="table-responsive container">

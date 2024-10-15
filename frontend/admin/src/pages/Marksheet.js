@@ -38,13 +38,13 @@ const Marksheet = () => {
     return (
         <>
             <Header />
-            <div className='pgMarksheet'>
+            <div className='pgMarksheet' style={{paddingBottom: '80px'}}>
                 <div className="container-fluid">
                     <div className="BgColor">
                         <nav>
                             <ul className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/dashboard">Home</Link></li>
-                                <li className="breadcrumb-item"><Link to="/dashboard">Sheets</Link></li>
+                                <li className="breadcrumb-item"><Link to="/sheets-collection">Sheets</Link></li>
                                 <li className="breadcrumb-item active" style={{ color: "#0a58ca" }}>Marksheet</li>
                             </ul>
                         </nav>
